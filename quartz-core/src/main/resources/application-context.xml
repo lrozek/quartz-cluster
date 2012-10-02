@@ -17,17 +17,17 @@
         <property name="password" value="${jdbc.password}" />
     </bean>
 
-    <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean"
+    <bean id="clusteredScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean"
         depends-on="flyway">
         <property name="dataSource" ref="dataSource" />
         <property name="quartzProperties">
             <props>
                 <prop key="org.quartz.scheduler.skipUpdateCheck">true</prop>
-                <prop key="org.quartz.scheduler.instanceName">ClusteredScheduler</prop>
+<!--                 <prop key="org.quartz.scheduler.instanceName">ClusteredScheduler</prop> -->
                 <prop key="org.quartz.scheduler.instanceId">AUTO</prop>
 
                 <prop key="org.quartz.jobStore.misfireThreshold">60000</prop>
-                <prop key="org.quartz.jobStore.class">org.springframework.scheduling.quartz.LocalDataSourceJobStore</prop>
+<!--                 <prop key="org.quartz.jobStore.class">org.springframework.scheduling.quartz.LocalDataSourceJobStore</prop> -->
                 <prop key="org.quartz.jobStore.driverDelegateClass">org.quartz.impl.jdbcjobstore.MSSQLDelegate</prop>
                 <prop key="org.quartz.jobStore.tablePrefix">QRTZ_</prop>
                 <prop key="org.quartz.jobStore.isClustered">true</prop>
