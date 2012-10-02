@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework" additivity="false">
+        <level value="info" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+    
+    <logger name="com.googlecode.flyway" additivity="false">
+        <level value="info" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <!-- log SQL statements -->
+    <logger name="net.sf.log4jdbc" additivity="false">
+        <level value="warn" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <logger name="jdbc.audit" additivity="false">
+        <level value="warn" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <!-- log only JDBC calls to ResultSet objects -->
+    <logger name="jdbc.resultset" additivity="false">
+        <level value="warn" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <!-- log timing information about the SQL that is executed -->
+    <logger name="jdbc.sqltiming" additivity="false">
+        <level value="TRACE" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <!-- log only JDBC calls to ResultSet objects -->
+    <logger name="jdbc.sqlonly" additivity="false">
+        <level value="warn" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+
+    <root>
+        <level value="TRACE" />
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
