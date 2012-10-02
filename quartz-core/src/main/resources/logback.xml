@@ -36,7 +36,7 @@
 
     <!-- log timing information about the SQL that is executed -->
     <logger name="jdbc.sqltiming" additivity="false">
-        <level value="TRACE" />
+        <level value="warn" />
         <appender-ref ref="STDOUT" />
     </logger>
 
@@ -46,6 +46,15 @@
         <appender-ref ref="STDOUT" />
     </logger>
 
+    <logger name="jdbc.connection" additivity="false">
+        <level value="warn" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <logger name="log4jdbc.debug" additivity="false">
+        <level value="warn" />
+        <appender-ref ref="STDOUT" />
+    </logger>
 
     <root>
         <level value="TRACE" />
