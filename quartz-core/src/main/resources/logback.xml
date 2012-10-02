@@ -1,17 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
+    <property name="pattern" value="%d [%thread] %-5level %logger{35} - %msg%n" />
+
+
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d [%thread] %-5level %logger{35} - %msg%n</pattern>
+            <pattern>${pattern}</pattern>
         </encoder>
     </appender>
+
+    <appender name="SimpleJobFileAppender" class="ch.qos.logback.core.FileAppender">
+        <file>${java.io.tmpdir}/simpleJob.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="pl.lrozek.quartz.job" additivity="false">
+        <level value="info" />
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="SimpleJobFileAppender" />
+    </logger>
 
     <logger name="org.springframework" additivity="false">
         <level value="info" />
         <appender-ref ref="STDOUT" />
     </logger>
-    
+
     <logger name="com.googlecode.flyway" additivity="false">
         <level value="info" />
         <appender-ref ref="STDOUT" />

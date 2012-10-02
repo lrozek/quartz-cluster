@@ -51,8 +51,8 @@
                 <property name="jobClass" value="pl.lrozek.quartz.job.SimpleJob" />
             </bean>
         </property>
-        <property name="repeatInterval" value="5000"/>
-        <property name="repeatCount" value="4" />
+        <property name="repeatInterval" value="2000"/>
+        <property name="repeatCount" value="50" />
     </bean>
 
 </beans>
