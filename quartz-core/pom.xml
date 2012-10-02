@@ -9,9 +9,16 @@
         <slf4j.version>1.7.1</slf4j.version>
         <log4jdbc.version>1.2beta2</log4jdbc.version>
         <jtds.version>1.2.5</jtds.version>
+        <spring.version>3.1.2.RELEASE</spring.version>
+        <flyway.version>1.7</flyway.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.googlecode.flyway</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>${flyway.version}</version>
+        </dependency>
         <dependency>
             <groupId>net.sourceforge.jtds</groupId>
             <artifactId>jtds</artifactId>
@@ -49,8 +56,19 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>3.1.2.RELEASE</version>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>commons-logging</artifactId>
