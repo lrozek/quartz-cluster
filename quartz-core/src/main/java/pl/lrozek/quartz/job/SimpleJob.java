@@ -17,6 +17,7 @@ public class SimpleJob extends QuartzJobBean {
             String instanceId = context.getScheduler().getSchedulerInstanceId();
             LOGGER.info( "running simple job in following instance: {}", instanceId );
             Thread.sleep( 10000 );
+            LOGGER.info( "finishing simple job in following instance: {}", instanceId );
         }
         catch ( SchedulerException e ) {
             LOGGER.error( "exception thrown", e );
