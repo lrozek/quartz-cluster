@@ -32,6 +32,7 @@
                 <prop key="org.quartz.jobStore.driverDelegateClass">org.quartz.impl.jdbcjobstore.MSSQLDelegate</prop>
                 <prop key="org.quartz.jobStore.tablePrefix">QRTZ_</prop>
                 <prop key="org.quartz.jobStore.isClustered">true</prop>
+                <prop key="org.quartz.jobStore.clusterCheckinInterval">30000</prop>
 
                 <prop key="org.quartz.threadPool.class">org.quartz.simpl.SimpleThreadPool</prop>
                 <prop key="org.quartz.threadPool.threadCount">1</prop>
