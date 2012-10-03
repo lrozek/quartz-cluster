@@ -16,7 +16,7 @@ public class DynamicJob extends QuartzJobBean {
     @Override
     protected void executeInternal( JobExecutionContext context ) throws JobExecutionException {
         try {
-            Long unternehmenId = (Long) context.getJobDetail().getJobDataMap().get( "unternehmenId" );
+            Long unternehmenId = (Long) context.getTrigger().getJobDataMap().get( "unternehmenId" );
             String instanceId = context.getScheduler().getSchedulerInstanceId();
             LOGGER.info( "running dynamic job for following unternehmenId: {} in following instance {}", unternehmenId, instanceId );
             Thread.sleep( 10000 );

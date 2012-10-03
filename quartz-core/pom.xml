@@ -6,6 +6,7 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
+        <guava.version>13.0.1</guava.version>
         <slf4j.version>1.7.1</slf4j.version>
         <log4jdbc.version>1.2beta2</log4jdbc.version>
         <jtds.version>1.2.5</jtds.version>
@@ -14,6 +15,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.googlecode.flyway</groupId>
             <artifactId>flyway-core</artifactId>
