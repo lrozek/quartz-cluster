@@ -1,20 +1,20 @@
 package pl.lrozek.quartz.job;
 
+import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.quartz.SchedulerException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DynamicJob extends QuartzJobBean {
+public class DynamicJob implements Job {
 
     private static final Logger LOGGER = LoggerFactory.getLogger( DynamicJob.class );
 
     @Override
-    protected void executeInternal( JobExecutionContext context ) throws JobExecutionException {
+    public void execute( JobExecutionContext context ) throws JobExecutionException {
         try {
             Long unternehmenId = (Long) context.getTrigger().getJobDataMap().get( "unternehmenId" );
             String instanceId = context.getScheduler().getSchedulerInstanceId();

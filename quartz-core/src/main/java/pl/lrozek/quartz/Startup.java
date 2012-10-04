@@ -4,6 +4,7 @@ import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
+import static pl.lrozek.quartz.job.DelegatingQuartzJob.DELEGATE_BEAN_KEY;
 
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,7 @@ import org.quartz.Trigger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-import pl.lrozek.quartz.job.DynamicJob;
+import pl.lrozek.quartz.job.DelegatingQuartzJob;
 
 public class Startup {
 
@@ -28,7 +29,7 @@ public class Startup {
     }
 
     public static void schedulaDynamicJobs( Scheduler scheduler ) throws SchedulerException {
-        JobDetail jobDetail = JobBuilder.newJob( DynamicJob.class ).withIdentity( "dynamicJob" ).build();
+        JobDetail jobDetail = JobBuilder.newJob( DelegatingQuartzJob.class ).usingJobData( DELEGATE_BEAN_KEY, "dynamicJob" ).withIdentity( "dynamicJob" ).build();
         boolean jobExists = null != scheduler.getJobDetail( jobDetail.getKey() );
         if ( !jobExists ) {
             List<Trigger> triggers = newArrayList();

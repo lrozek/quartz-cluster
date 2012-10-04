@@ -1,18 +1,20 @@
 package pl.lrozek.quartz.job;
 
+import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.quartz.SchedulerException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.scheduling.quartz.QuartzJobBean;
+import org.springframework.stereotype.Component;
 
-public class SimpleJob extends QuartzJobBean {
+@Component
+public class SimpleJob implements Job {
 
     private static final Logger LOGGER = LoggerFactory.getLogger( SimpleJob.class );
 
     @Override
-    protected void executeInternal( JobExecutionContext context ) throws JobExecutionException {
+    public void execute( JobExecutionContext context ) throws JobExecutionException {
         try {
             String instanceId = context.getScheduler().getSchedulerInstanceId();
             LOGGER.info( "running simple job in following instance: {}", instanceId );
@@ -26,4 +28,5 @@ public class SimpleJob extends QuartzJobBean {
             LOGGER.error( "exception thrown", e );
         }
     }
+
 }

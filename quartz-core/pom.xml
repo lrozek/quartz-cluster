@@ -12,6 +12,8 @@
         <jtds.version>1.2.6</jtds.version>
         <spring.version>3.1.2.RELEASE</spring.version>
         <flyway.version>1.7</flyway.version>
+        <java.compiler.version>1.6</java.compiler.version>
+        <maven.compiler.plugin.version>2.5.1</maven.compiler.plugin.version>
     </properties>
 
     <dependencies>
@@ -100,6 +102,19 @@
                 </excludes>
             </resource>
         </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${java.compiler.version}</source>
+                    <target>${java.compiler.version}</target>
+                    <optimize>true</optimize>
+                    <debug>true</debug>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
     <repositories>
         <repository>
