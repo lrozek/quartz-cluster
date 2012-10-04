@@ -8,8 +8,8 @@
     <properties>
         <guava.version>13.0.1</guava.version>
         <slf4j.version>1.7.1</slf4j.version>
-        <log4jdbc.version>1.2beta2</log4jdbc.version>
-        <jtds.version>1.2.5</jtds.version>
+        <log4jdbc.version>1.2</log4jdbc.version>
+        <jtds.version>1.2.6</jtds.version>
         <spring.version>3.1.2.RELEASE</spring.version>
         <flyway.version>1.7</flyway.version>
     </properties>
