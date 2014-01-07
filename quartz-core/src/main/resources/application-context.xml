@@ -38,6 +38,7 @@
                 <prop key="org.quartz.scheduler.instanceId">AUTO</prop>
 
                 <prop key="org.quartz.jobStore.misfireThreshold">60000</prop>
+                <prop key="org.quartz.scheduler.idleWaitTime">30000</prop>
                 <!-- <prop key="org.quartz.jobStore.class">org.springframework.scheduling.quartz.LocalDataSourceJobStore</prop> -->
                 <prop key="org.quartz.jobStore.driverDelegateClass">org.quartz.impl.jdbcjobstore.MSSQLDelegate</prop>
                 <prop key="org.quartz.jobStore.tablePrefix">QRTZ_</prop>
